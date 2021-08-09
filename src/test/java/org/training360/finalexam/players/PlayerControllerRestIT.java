@@ -8,7 +8,6 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.test.context.jdbc.Sql;
-import org.training360.finalexam.teams.CreateTeamCommand;
 import org.zalando.problem.Problem;
 import org.zalando.problem.Status;
 
@@ -42,7 +41,7 @@ public class PlayerControllerRestIT {
     @Test
     void testGetPlayers(){
         template.postForObject("/api/players",
-                new CreatePlayerCommand("John Doe", LocalDate.of(1991,11,10),PositionType.CENTER_BACK),
+                new CreatePlayerCommand("John Doe", LocalDate.of(1991,11,10), PositionType.CENTER_BACK),
                 PlayerDTO.class);
 
         template.postForObject("/api/players",

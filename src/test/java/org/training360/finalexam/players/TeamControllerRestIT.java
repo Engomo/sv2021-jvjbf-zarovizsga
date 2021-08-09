@@ -190,12 +190,12 @@ public class TeamControllerRestIT {
     void testAddPlayerToNotExistingTeam(){
         Long wrongId = 6666L;
 
-       Problem result = template.postForObject("/api/teams/"+wrongId+"/players",
+        Problem result = template.postForObject("/api/teams/"+wrongId+"/players",
                 new CreatePlayerCommand("John Doe", LocalDate.of(1991,11,10),PositionType.CENTER_BACK),
                 Problem.class);
 
-       assertEquals(URI.create("teams/not-found"),result.getType());
-       assertEquals(Status.NOT_FOUND,result.getStatus());
+        assertEquals(URI.create("teams/not-found"),result.getType());
+        assertEquals(Status.NOT_FOUND,result.getStatus());
     }
 
     @Test
